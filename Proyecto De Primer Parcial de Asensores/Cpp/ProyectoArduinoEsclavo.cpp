@@ -1,20 +1,41 @@
+//============= ESCLAVO =============
 #include <LiquidCrystal.h>
 
-// initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+// Conectamos los pines de la Pantalla LCD a el Arduino
+LiquidCrystal lcd(7, 6, 5, 4, 3, 2);
 
 void setup() {
     Serial.begin(9600);
-  // set up the LCD's number of columns and rows:
-    // lcd.begin(16, 2);
-  // Print a message to the LCD.
-    // lcd.print("hello, world!");
+
+  // Inicializamos las pantalla LCD
+    lcd.begin(16, 2);//(Columnas, Filas)
+
+    initial_message();
 }
 
 void loop() {
-    // lcd.setCursor(0, 1);
-  // print the number of seconds since reset:
-    // lcd.print(millis() / 1000);
-    int lectura = analogRead(A0);
-    Serial.println(lectura);
+    // lcd.clear();
+  if (pisonumber > 0 && pisonumber <= 33){
+  }else{
+      Serial.println("piso NO EXISTE!!!!");
+  }
 }
+
+void initial_message(){
+    lcd.setCursor(1, 0);
+    lcd.print("(Welcome to)=>");
+  // Posiciones en los que escribimos en Mensaje
+    lcd.setCursor(4, 1);
+  // Pintamos un mensaje en el LCD.
+    lcd.print("{Google}");
+}
+
+void alert_message(int piso, int piso_next){
+    lcd.setCursor(1, 0);
+    lcd.print("Hacia Piso ");
+  // Posiciones en los que escribimos en Mensaje
+    lcd.setCursor(4, 1);
+  // Pintamos un mensaje en el LCD.
+    lcd.print("Siguiente Piso ");
+}
+
