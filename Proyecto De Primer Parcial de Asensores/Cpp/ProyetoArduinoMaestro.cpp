@@ -17,8 +17,8 @@ char keys[ROWS][COLS] = {
 byte rowPins[ROWS] = {9, 8, 7, 6}; //conectar los pines de las filas al arduino
 byte colPins[COLS] = {5, 4, 3, 2}; //conectar los pines de las columnas al arduino
 String piso = "";
-char opc;
-int pisonumber = 0;
+byte message;
+int pisonumber;
 // Objetos de el Teclado Matricial
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
@@ -34,15 +34,22 @@ void loop(){
 
     if (key != NO_KEY){
         if (key == '*'){
+            Serial.println(piso);
             pisonumber = atoi(piso.c_str());
-            if (pisonumber > 0 && pisonumber <= 33){
-                Serial.println("piso existe");
+            if (pisonumber > 0 && pisonumber <= 9){
+                // Iniciamos la transmision y mandamos el dato al esclavo
+                Wire.beginTransmission(1);
+                Wire.write(message);
+                Wire.endTransmission();
             }else{
-                Serial.println("piso NO EXISTE!!!!");
+                Wire.beginTransmission(1);
+                Wire.write("0");
+                Wire.endTransmission();
             }
             piso = "";
         }else{
             piso += key;    
+            message = key;
         }
         Serial.println(piso);
     }
