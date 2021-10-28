@@ -1,4 +1,5 @@
 //============= MAESTRO =============
+#include <Wire.h> // Libreria para la Comunicacion I2C (maestro-esclavo)
 #include <Keypad.h>//Libreria para manejar el Teclado Matricial
 
 const byte ROWS = 4; //cuatro filas
@@ -24,6 +25,8 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 void setup(){
     Serial.begin(9600);//Para definir la escriltura en el Monitor en Serie
+    // Inicializamos la libreria Wire siempre en el setup
+    Wire.begin();
 }
 
 void loop(){
