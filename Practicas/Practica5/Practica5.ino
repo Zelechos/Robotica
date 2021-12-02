@@ -1,3 +1,4 @@
+//PRACTICA 5 : TUMIRI HUANCA ALEX
 byte number[10][8] = {
     {0, 0, 0, 0, 0, 0, 1, 1}, // 0
     {1, 0, 0, 1, 1, 1, 1, 1}, // 1
