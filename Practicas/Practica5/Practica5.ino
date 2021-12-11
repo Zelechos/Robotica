@@ -69,3 +69,5 @@ void sevenSegments(byte num){
     digitalWrite(i+2 , number[num][i]);  
   }
 }
+
+// Ultimo comentario
