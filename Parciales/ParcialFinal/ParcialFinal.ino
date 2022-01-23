@@ -52,7 +52,14 @@ int Verde_Frec = 0;
 int Azul_Frec = 0;
 
 void loop() {
-//  moveServo();
+//  obtenemos la distancia del ultrasonico
+  long distance = 0.01723 * readUltrasonicDistance(28, 29);
+  if(distance < 10){
+    Serial.println("Producto Aceptado!!!!");
+  }else{
+    Serial.println("Producto Rechazado!!!!");
+  }
+  moveServo();
   sensorColor();
 
 }
@@ -73,6 +80,26 @@ void leftServo(){
    motor.write(135);    
    delay(2000);
    motor.write(90);
+}
+
+//rutina para el funcionamiento de el UltraSonico
+long readUltrasonicDistance(int triggerPin, int echoPin){
+    
+    // iniciamos el trigger
+    pinMode(triggerPin, OUTPUT);
+
+    digitalWrite(triggerPin, LOW);
+    delayMicroseconds(4);
+
+
+    digitalWrite(triggerPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(triggerPin, LOW);
+
+
+    pinMode(echoPin, INPUT);
+
+    return pulseIn(echoPin, HIGH);
 }
 
 void sensorColor(){
