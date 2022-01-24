@@ -1,6 +1,10 @@
 ESTUDIANTE : TUMIRI HUANCA ALEX
 
 Link de Video :
-
+	https://drive.google.com/file/d/1nhs9z4FonYBfUw1wPKYN0HsxFgfg1OfY/view?usp=sharing
 
 Link de Documento :
+	https://docs.google.com/document/d/1c7v7JWuM2R7rJzURljdeo-LAvhSjoeAX9O7BFd8lZj4/edit?usp=sharing
+
+Link de Repositorio :
+	https://github.com/Zelechos/Robotica/tree/main/Parciales/Parcial%20Final%20-%20Tumiri%20Huanca%20Alex
